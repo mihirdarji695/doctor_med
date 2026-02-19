@@ -1,0 +1,300 @@
+:root {
+    --primary: #2563eb;
+    --bg-main: #f1f5f9;
+    --bg-card: #ffffff;
+    --text-main: #1e293b;
+    --text-muted: #64748b;
+    --border: #cbd5e1;
+    --radius: 12px;
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Inter', sans-serif;
+}
+
+body {
+    background-color: var(--bg-main);
+    color: var(--text-main);
+    padding: 2rem 1rem;
+}
+
+.app-container {
+    max-width: 1000px;
+    margin: 0 auto;
+}
+
+/* UI Header */
+.main-header {
+    background: white;
+    padding: 1.5rem 2rem;
+    border-radius: var(--radius);
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 2rem;
+    box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1);
+}
+
+.logo-group h1 {
+    font-size: 1.5rem;
+    font-weight: 800;
+}
+
+.logo-group h1 span {
+    color: var(--primary);
+}
+
+/* Form Section */
+.form-section {
+    background: white;
+    padding: 2.5rem;
+    border-radius: var(--radius);
+    box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.1);
+}
+
+.form-header {
+    margin-bottom: 2rem;
+    border-bottom: 1px solid #f1f5f9;
+    padding-bottom: 1rem;
+}
+
+.form-group {
+    margin-bottom: 1.25rem;
+}
+
+label {
+    display: block;
+    font-weight: 600;
+    font-size: 0.875rem;
+    color: var(--text-muted);
+    margin-bottom: 0.5rem;
+}
+
+input,
+select,
+textarea {
+    width: 100%;
+    padding: 0.75rem 1rem;
+    border: 1px solid var(--border);
+    border-radius: 8px;
+    font-size: 1rem;
+}
+
+.grid-2 {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 1.5rem;
+}
+
+.grid-3 {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 1.5rem;
+}
+
+.form-divider {
+    border: none;
+    height: 1px;
+    background: #eee;
+    margin: 2rem 0;
+}
+
+.btn-add {
+    background: #f1f5f9;
+    border: 1px solid #ddd;
+    padding: 0.5rem 1rem;
+    border-radius: 6px;
+    cursor: pointer;
+    font-weight: 700;
+}
+
+.btn-remove {
+    background: #fee2e2;
+    color: #ef4444;
+    border: none;
+    padding: 0.4rem 0.8rem;
+    border-radius: 4px;
+    cursor: pointer;
+    font-size: 0.8rem;
+}
+
+.form-actions {
+    display: flex;
+    gap: 1rem;
+    margin-top: 2rem;
+}
+
+.btn-primary {
+    flex: 2;
+    background: var(--primary);
+    color: white;
+    border: none;
+    padding: 1rem;
+    border-radius: 8px;
+    font-weight: 700;
+    cursor: pointer;
+}
+
+.btn-outline {
+    flex: 1;
+    border: 1px solid var(--border);
+    background: white;
+    padding: 1rem;
+    border-radius: 8px;
+    font-weight: 700;
+    cursor: pointer;
+}
+
+/* ================== PRESCRIPTION TEMPLATE (A4) ================== */
+#prescriptionTemplate {
+    width: 210mm;
+    min-height: 297mm;
+    background: white;
+    margin: 40px auto;
+    padding: 15mm;
+    color: #000;
+    box-shadow: 0 0 50px rgba(0, 0, 0, 0.1);
+    position: relative;
+}
+
+.hidden {
+    display: none !important;
+}
+
+/* Template Content Styles to match PDF precisely */
+.presc-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+    border-bottom: 2px solid #000;
+    padding-bottom: 15px;
+    margin-bottom: 20px;
+}
+
+.presc-doctor-info {
+    text-align: right;
+}
+
+.presc-doctor-info h2 {
+    font-size: 24px;
+    font-weight: 800;
+    margin: 0;
+}
+
+.presc-doctor-info h3 {
+    font-size: 16px;
+    margin: 5px 0;
+}
+
+.presc-doctor-info p {
+    font-size: 11px;
+    color: #333;
+    margin: 1px 0;
+}
+
+.patient-info-row {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    background: #f8fafc;
+    border: 1px solid #000;
+    padding: 12px 20px;
+    margin-bottom: 20px;
+}
+
+.patient-info-row p {
+    font-size: 13px;
+    margin: 2px 0;
+}
+
+.patient-info-row span {
+    font-weight: 800;
+}
+
+.clinical-section {
+    margin-bottom: 20px;
+}
+
+.clinical-section h4 {
+    font-size: 14px;
+    text-transform: uppercase;
+    text-decoration: underline;
+    margin-bottom: 5px;
+}
+
+.clinical-section p {
+    font-size: 14px;
+    padding-left: 10px;
+}
+
+.main-content-grid {
+    display: flex;
+    border-top: 2px solid #000;
+    border-bottom: 2px solid #000;
+    min-height: 500px;
+}
+
+.lab-column {
+    width: 35%;
+    border-right: 2px solid #000;
+    padding: 15px 10px;
+}
+
+.med-column {
+    width: 65%;
+    padding: 15px 20px;
+}
+
+.column-title {
+    font-weight: 800;
+    font-size: 16px;
+    text-align: center;
+    border-bottom: 1px solid #000;
+    padding-bottom: 8px;
+    margin-bottom: 15px;
+}
+
+.pdf-med-item {
+    margin-bottom: 15px;
+}
+
+.pdf-med-item .name-row {
+    display: flex;
+    justify-content: space-between;
+    font-weight: 800;
+    font-size: 15px;
+}
+
+.pdf-med-item .instr-row {
+    display: flex;
+    justify-content: space-between;
+    font-size: 12px;
+    font-style: italic;
+    margin-top: 2px;
+}
+
+.signature-area {
+    margin-top: 30px;
+    text-align: right;
+}
+
+.sig-name {
+    font-weight: 800;
+    border-top: 2px solid #000;
+    display: inline-block;
+    padding-top: 5px;
+    margin-top: 0;
+}
+
+.presc-footer {
+    position: absolute;
+    bottom: 15mm;
+    left: 15mm;
+    right: 15mm;
+    font-size: 10px;
+    color: #666;
+    border-top: 1px solid #ddd;
+    padding-top: 10px;
+}

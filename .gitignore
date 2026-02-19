@@ -1,0 +1,8 @@
+temp/
+__pycache__/
+*.pdf
+extract_*.py
+get_*.py
+env/
+.venv/
+.env
