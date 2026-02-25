@@ -148,6 +148,10 @@ textarea {
     cursor: pointer;
 }
 
+.hidden {
+    display: none !important;
+}
+
 /* ================== PRESCRIPTION TEMPLATE (A4) - SHRADHA CLINIC ================== */
 #prescriptionTemplate {
     width: 210mm;
