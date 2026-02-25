@@ -10,9 +10,35 @@ document.addEventListener('DOMContentLoaded', () => {
     const logoutBtn = document.getElementById('logoutBtn');
     const historyBody = document.getElementById('historyBody');
 
+    // --- LOGIN LOGIC ---
     const checkLogin = () => {
-        console.log("Portal Ready - Dr. Rashmin Kunadia");
+        if (localStorage.getItem('isLoggedIn') === 'true') {
+            loginOverlay.classList.add('hidden');
+        } else {
+            loginOverlay.classList.remove('hidden');
+        }
     };
+
+    loginForm.addEventListener('submit', (e) => {
+        e.preventDefault();
+        const user = document.getElementById('username').value;
+        const pass = document.getElementById('password').value;
+
+        // Hardcoded credentials as requested
+        if (user === 'doctor' && pass === 'doctor123') {
+            localStorage.setItem('isLoggedIn', 'true');
+            loginOverlay.classList.add('hidden');
+            renderHistory();
+        } else {
+            loginError.style.display = 'block';
+        }
+    });
+
+    logoutBtn.addEventListener('click', () => {
+        localStorage.removeItem('isLoggedIn');
+        window.location.reload();
+    });
+
     checkLogin();
 
 
