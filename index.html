@@ -4,7 +4,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Doctor's Prescription Portal</title>
+    <title>Shradha Clinic - Prescription Portal</title>
     <link rel="stylesheet" href="style.css?v=final_stable">
     <link
         href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700;800&family=Dancing+Script:wght@600&display=swap"
@@ -14,32 +14,15 @@
 
 <body>
     <!-- LOGIN OVERLAY -->
-    <div id="loginOverlay" class="login-overlay">
-        <div class="login-card">
-            <h2>Doctor Login</h2>
-            <p>Access the prescription portal securely.</p>
-            <form id="loginForm" class="login-form">
-                <div class="form-group">
-                    <label>Doctor Username</label>
-                    <input type="text" id="username" placeholder="Enter username" required>
-                </div>
-                <div class="form-group">
-                    <label>Password</label>
-                    <input type="password" id="password" placeholder="Enter password" required>
-                </div>
-                <p id="loginError" class="error-msg">Invalid credentials. Please try again.</p>
-                <button type="submit" class="btn-login">Login to Portal</button>
-            </form>
-        </div>
-    </div>
+
 
     <div class="app-container">
         <header class="main-header">
             <div class="logo-group">
-                <h1>MedPortal <span>Pro</span></h1>
+                <h1>Shradha <span>Clinic</span></h1>
             </div>
             <div class="doctor-profile">
-                <p><strong>Dr. Saka Meghana</strong><button id="logoutBtn" class="btn-logout">Logout</button></p>
+                <p><strong>Dr. Rashmin Kunadia</strong><button id="logoutBtn" class="btn-logout">Logout</button></p>
                 <p style="font-size: 0.8rem; color: #666;">General Physician</p>
             </div>
         </header>
@@ -134,64 +117,74 @@
 
     <!-- PRESCRIPTION TEMPLATE -->
     <div id="prescriptionTemplate" class="hidden">
-        <div class="presc-header">
-            <div class="presc-logo">
-                <img src="logo.png" alt="Logo" style="height: 100px; width: auto;">
+        <div class="presc-header-new">
+            <div class="header-top">
+                <div class="clinic-info">
+                    <h1 class="clinic-name">Shradha clinic</h1>
+                    <h2 class="doctor-name">Dr Rashmin Kunadia</h2>
+                    <div class="address-text">
+                        <p>Address: Gujarat housing board.</p>
+                        <p>MIG:628.opp kalaria school,</p>
+                        <p>Junagadh</p>
+                    </div>
+                </div>
+                <div class="contact-details">
+                    <p>Reg. No.: G-6216</p>
+                    <p>Phone No.: 9825746706</p>
+                    <p>Email: drrashmin.kunadiya@gmail.com</p>
+                    <p>Timings: 10:00 AM to 1:00 PM</p>
+                    <p style="margin-left: 50px;">5:30 PM to 09:00 PM</p>
+                </div>
             </div>
-            <div class="presc-doctor-info">
-                <h2>Dr. Saka Meghana</h2>
-                <h3>MBBS, Physician</h3>
-                <p>Reg No: APMC/FMR/99783</p>
-                <p><strong>Karumuri Super Speciality Hospital (Kothapeta, Guntur)</strong></p>
-                <p>H No: 13, 4-73, Old Club Rd, Gunturvari Thota,</p>
-                <p>Kothapeta, Guntur, Andhra Pradesh - 522001, India</p>
-            </div>
-        </div>
-
-        <div class="patient-info-row">
-            <div>
-                <p>Patient: <span id="pdfPatientName"></span></p>
-                <p>Age/Gen: <span id="pdfAge"></span> / <span id="pdfGender"></span></p>
-            </div>
-            <div style="text-align: right;">
-                <p>Ref ID: <span id="pdfRefNo"></span></p>
-                <p>Date: <span id="pdfDateTime"></span></p>
-            </div>
-        </div>
-
-        <div class="clinical-section">
-            <h4>Symptoms:</h4>
-            <p id="pdfSymptoms"></p>
-        </div>
-
-        <div class="clinical-section">
-            <h4>Diagnosis:</h4>
-            <p id="pdfDiagnosis"></p>
-        </div>
-
-        <div class="main-content-grid">
-            <div class="lab-column">
-                <div class="column-title">LAB TESTS</div>
-                <div id="pdfLabTests"></div>
-            </div>
-            <div class="med-column">
-                <div class="column-title">MEDICATIONS (Rx)</div>
-                <div id="pdfMedicines"></div>
-                <p style="margin-top:20px; font-size:10px; text-align:center; font-weight:bold;">
-                    ***** Substitution allowed / Follow dosage strictly *****
-                </p>
+            <div class="blue-wave-banner">
+                <svg viewBox="0 0 500 50" preserveAspectRatio="none">
+                    <path d="M0,0 L500,0 L500,30 Q250,50 0,30 Z" fill="#0077b6" />
+                    <path d="M0,35 Q250,55 500,35 L500,45 Q250,65 0,45 Z" fill="#00b4d8" opacity="0.5" />
+                </svg>
             </div>
         </div>
 
-        <div class="signature-area">
-            <img src="signature.jpg" alt="Signature"
-                style="height: 60px; width: auto; display: block; margin-left: auto;">
-            <div class="sig-name">Dr. Saka Meghana</div>
+        <div class="patient-info-new">
+            <div class="info-row">
+                <div class="info-item">Patient Name : <span id="pdfPatientName"></span></div>
+                <div class="info-item">Age : <span id="pdfAge"></span></div>
+                <div class="info-item">Sex : <span id="pdfGender"></span></div>
+                <div class="info-item">Date : <span id="pdfDateTime"></span></div>
+            </div>
+            <div class="ref-id-row">Ref ID: <span id="pdfRefNo"></span></div>
         </div>
 
-        <div class="presc-footer">
-            1. Electronic prescription. Visit clinic for physical examination.
-            | 2. Confidential and sensitive information.
+        <div class="main-body-new">
+            <div class="rx-symbol">Rx</div>
+            <img src="logo_new.png" class="watermark-logo" alt="">
+
+            <div class="content-container">
+                <div class="clinical-info">
+                    <div id="pdfSymptoms"></div>
+                    <div id="pdfDiagnosis"></div>
+                </div>
+
+                <div class="prescription-grid">
+                    <div class="labs-box">
+                        <div class="box-title">LAB TESTS</div>
+                        <div id="pdfLabTests"></div>
+                    </div>
+                    <div class="meds-box">
+                        <div class="box-title">MEDICATIONS</div>
+                        <div id="pdfMedicines"></div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="footer-new">
+            <div class="footer-signature">
+                <p class="signature-text-only">Rashmin</p>
+            </div>
+            <div class="footer-banner">
+                <div class="notes-line">Notes: Specialist in weight reduction and weight gain</div>
+                <div class="id-bottom">LM470/344/2293</div>
+            </div>
         </div>
     </div>
 

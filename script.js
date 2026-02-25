@@ -10,36 +10,11 @@ document.addEventListener('DOMContentLoaded', () => {
     const logoutBtn = document.getElementById('logoutBtn');
     const historyBody = document.getElementById('historyBody');
 
-    // --- LOGIN LOGIC ---
     const checkLogin = () => {
-        if (localStorage.getItem('isLoggedIn') === 'true') {
-            loginOverlay.classList.add('hidden');
-        } else {
-            loginOverlay.classList.remove('hidden');
-        }
+        console.log("Portal Ready - Dr. Rashmin Kunadia");
     };
-
-    loginForm.addEventListener('submit', (e) => {
-        e.preventDefault();
-        const user = document.getElementById('username').value;
-        const pass = document.getElementById('password').value;
-
-        // Hardcoded credentials as requested
-        if (user === 'doctor' && pass === 'doctor123') {
-            localStorage.setItem('isLoggedIn', 'true');
-            loginOverlay.classList.add('hidden');
-            renderHistory();
-        } else {
-            loginError.style.display = 'block';
-        }
-    });
-
-    logoutBtn.addEventListener('click', () => {
-        localStorage.removeItem('isLoggedIn');
-        window.location.reload();
-    });
-
     checkLogin();
+
 
     // --- HISTORY LOGIC ---
     const saveToHistory = (data) => {
@@ -138,7 +113,7 @@ document.addEventListener('DOMContentLoaded', () => {
         // Lab Tests
         const labs = document.getElementById('labTests').value;
         const labDiv = document.getElementById('pdfLabTests');
-        labDiv.innerHTML = labs ? labs.split('\n').map(l => `<p style="font-size:13px; margin:4px 0;">• ${l}</p>`).join('') : '<p style="color:#aaa;">None</p>';
+        labDiv.innerHTML = labs ? labs.split('\n').map(l => `<p class="pdf-lab-item">• ${l}</p>`).join('') : '<p style="color:#aaa;">None</p>';
 
         // Medications
         const medDiv = document.getElementById('pdfMedicines');
@@ -194,16 +169,17 @@ document.addEventListener('DOMContentLoaded', () => {
         template.classList.remove('hidden');
 
         const opt = {
-            margin: 0,
+            margin: [0, 0, 0, 0], // No margins to prevent scaling issues
             filename: `Prescription_${document.getElementById('patientName').value || 'Patient'}.pdf`,
             image: { type: 'jpeg', quality: 1.0 },
             html2canvas: {
                 scale: 2,
                 useCORS: true,
                 logging: false,
-                scrollY: 0
+                scrollY: 0,
+                windowWidth: 800 // Fixed width for consistent rendering
             },
-            jsPDF: { unit: 'mm', format: 'a4', orientation: 'portrait' }
+            jsPDF: { unit: 'mm', format: 'a4', orientation: 'portrait', compress: true }
         };
 
         html2pdf().set(opt).from(template).save().then(() => {
